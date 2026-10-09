@@ -6,8 +6,8 @@ exports.getAll = (callback) => {
     db.query('SELECT * FROM personas', callback);
 };
 
-exports.getById = (id, persona, callback) => {
-    db.query('SELECT * FROM personas WHERE id = ?', [id], callback);
+exports.getById = (id, callback) => {
+    db.query('SELECT * FROM personas WHERE id_persona = ?', [id], callback);
 };
 
 exports.create = (persona, callback) => {

@@ -24,14 +24,10 @@ exports.create = (req, res) => {
 
 exports.update = (req, res) => {
     personaService.update(req.params.id, req.body, (err) => {
-        if (err) return res.status(500).json(err);
+       if (err) {
+            console.error("Error detallado en MySQL:", err); // <-- Agrega esto
+            return res.status(500).json(err);
+        }
         res.json({ mensaje: 'Persona actualizada exitosamente' });
-    });
-};
-
-exports.delete = (req, res) => {
-    personaService.delete(req.params.id, (err) => {
-        if (err) return res.status(500).json(err);
-        res.json({ mensaje: 'Persona eliminada exitosamente' });
     });
 };
